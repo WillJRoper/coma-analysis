@@ -11,7 +11,7 @@ import swiftascmaps
 snap = sys.argv[1]
 
 # Get data
-hdf = h5py.File("snapshots/COMA_N155_" + snap + ".hdf5", "r")
+hdf = h5py.File("../low_res/snapshots/COMA_N155_" + snap + ".hdf5", "r")
 hdf["Header"].attrs["Redshift"]
 pos = hdf["PartType1"]["Coordinates"][:]
 mass = hdf["PartType1"]["Masses"][:] * 10 ** 10
