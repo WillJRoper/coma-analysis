@@ -9,7 +9,7 @@ import swiftascmaps
 
 
 # Get snapshot
-if len(sys.argv) == 0:
+if len(sys.argv) == 1:
 
     snaps = [str(i).zfill(4) for i in range(0, 22)]
 
