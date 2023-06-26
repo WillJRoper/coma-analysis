@@ -1,6 +1,7 @@
 import sys
 import h5py
 import unyt
+import numpy as np
 from synthesizer.imaging.images import ParticleImage
 import matplotlib.colors as cm
 import matplotlib.pyplot as plt
