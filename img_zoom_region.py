@@ -11,7 +11,7 @@ import swiftascmaps
 # Get snapshot
 if len(sys.argv) == 1:
 
-    snaps = [str(i).zfill(4) for i in range(28, 31)]
+    snaps = [str(i).zfill(4) for i in range(30, 33)]
 
     for snap in snaps:
 
