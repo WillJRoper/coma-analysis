@@ -35,6 +35,8 @@ def get_image(snap):
     
     img.img[img.img < 0] = 0
 
+    print(img.img.max())
+
     # Plot image
     fig = plt.figure()
     ax = fig.add_subplot(111)
@@ -42,7 +44,7 @@ def get_image(snap):
         img.img,
         extent=(pos[:, 0].min(), pos[:, 0].max(),
                 pos[:, 1].min(), pos[:, 1].max()),
-        norm=cm.LogNorm(vmin=mass[0], vmax=None, clip=True),
+        norm=cm.LogNorm(vmin=mass[0] * 0.5, vmax=None, clip=True),
         cmap="swift.nineteen_eighty_nine")
     fig.savefig("plots/COMA_low_res_test_xy_" + snap + ".png", dpi=300,
                 bbox_inches="tight")
