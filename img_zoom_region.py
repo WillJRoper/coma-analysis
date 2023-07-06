@@ -71,8 +71,7 @@ def get_image(snap):
     axis_to_data = ax.transAxes + ax.transData.inverted()
     left = axis_to_data.transform((0.05, 0.075))
     right = axis_to_data.transform((0.15, 0.075))
-    dist = extent[1] * (right[0] - left[0]) / (
-        ang_extent[1] - ang_extent[0])
+    dist = right[0] - left[0]
 
     ax.text(0.1, 0.055, "%.2f cMpc" % dist,
             transform=ax.transAxes, verticalalignment="top",
