@@ -14,8 +14,8 @@ def get_image(snap):
     # Get data
     hdf = h5py.File("../low_res/snapshots/COMA_N155_" + snap + ".hdf5", "r")
     redshift = hdf["Header"].attrs["Redshift"]
-    pos = hdf["PartType1"]["Coordinates"][:]
-    mass = hdf["PartType1"]["Masses"][:] * 10 ** 10
+    pos = hdf["PartType1"]["Coordinates"][:1000, :]
+    mass = hdf["PartType1"]["Masses"][:1000] * 10 ** 10
     hdf.close()
 
     print("Got data...")
@@ -55,16 +55,16 @@ def get_image(snap):
 
     ax.text(0.975, 0.05, "$t=$%.1f Gyr" % cosmo.age(redshift).value,
             transform=ax.transAxes, verticalalignment="top",
-            horizontalalignment='right', fontsize=1, color="w")
+            horizontalalignment='right', fontsize=10, color="w")
 
-    ax.plot([0.05, 0.15], [0.025, 0.025], lw=0.1, color='w',
+    ax.plot([0.05, 0.15], [0.025, 0.025], lw=0.5, color='w',
             clip_on=False,
             transform=ax.transAxes)
     
-    ax.plot([0.05, 0.05], [0.022, 0.027], lw=0.15, color='w',
+    ax.plot([0.05, 0.05], [0.022, 0.027], lw=0.75, color='w',
             clip_on=False,
             transform=ax.transAxes)
-    ax.plot([0.15, 0.15], [0.022, 0.027], lw=0.15, color='w',
+    ax.plot([0.15, 0.15], [0.022, 0.027], lw=0.75, color='w',
             clip_on=False,
             transform=ax.transAxes)
     
@@ -75,7 +75,7 @@ def get_image(snap):
 
     ax.text(0.1, 0.055, "%.2f cMpc" % dist,
             transform=ax.transAxes, verticalalignment="top",
-            horizontalalignment='center', fontsize=1, color="w")
+            horizontalalignment='center', fontsize=10, color="w")
     
     plt.margins(0, 0)
     
