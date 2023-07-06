@@ -46,7 +46,7 @@ def get_image(snap):
     ax.imshow(
         img.img,
         extent=extent,
-        norm=cm.LogNorm(vmin=mass[0] * 0.5, vmax=71203564514.88318, clip=True),
+        norm=cm.LogNorm(vmin=mass[0] * 0.5, vmax=19509086497.12782, clip=True),
         cmap="swift.nineteen_eighty_nine")
 
     ax.tick_params(axis='both', left=False, top=False, right=False,
