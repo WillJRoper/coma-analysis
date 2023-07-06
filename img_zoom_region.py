@@ -43,7 +43,7 @@ def get_image(snap):
         img.img,
         extent=(pos[:, 0].min(), pos[:, 0].max(),
                 pos[:, 1].min(), pos[:, 1].max()),
-        norm=cm.LogNorm(),
+        norm=cm.LogNorm(vmin=mass[0], vmax=None, clip=True),
         cmap="swift.nineteen_eighty_nine")
     fig.savefig("plots/COMA_low_res_test_xy_" + snap + ".png", dpi=300,
                 bbox_inches="tight")
