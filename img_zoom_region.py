@@ -60,10 +60,10 @@ def get_image(snap):
 
     # Define distance indicator
     dist = 10
-    left = 0.05 * fov
+    left = extent[0] + 0.05 * fov
     right = left + dist
     xmid = left + (dist / 2)
-    ymid = 0.05 * fov
+    ymid = extent[0] + 0.05 * fov
     top = ymid + 1.5
     bottom = ymid - 1.5
 
