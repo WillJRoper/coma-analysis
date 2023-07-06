@@ -54,7 +54,7 @@ def get_image(snap):
                    labelbottom=False)
 
     ax.text(0.975, 0.06, "$t=$%.1f Gyr" % cosmo.age(redshift).value,
-            transform=ax.transAxes, verticalalignment="bottom",
+            transform=ax.transAxes, verticalalignment="top",
             horizontalalignment='right', fontsize=6, color="w")
 
     ax.plot([0.05, 0.15], [0.05, 0.05], lw=0.75, color='w',
