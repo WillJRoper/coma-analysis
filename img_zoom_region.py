@@ -6,7 +6,6 @@ from synthesizer.imaging.images import ParticleImage
 import matplotlib.colors as cm
 import matplotlib.pyplot as plt
 import swiftascmaps
-from schwimmbad import MultiPool
 
 
 def get_image(snap):
