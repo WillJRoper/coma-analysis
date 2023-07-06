@@ -40,6 +40,7 @@ def get_image(snap):
     # Plot image
     fig = plt.figure()
     ax = fig.add_subplot(111)
+    ax.axis("off")
     ax.imshow(
         img.img,
         extent=(pos[:, 0].min(), pos[:, 0].max(),
