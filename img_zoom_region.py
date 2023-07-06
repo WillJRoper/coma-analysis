@@ -24,7 +24,7 @@ def get_image(snap):
 
     # Get image
     img = ParticleImage(
-        0.00233195 * unyt.Mpc * 2,
+        0.00233195 * unyt.Mpc,
         fov=120 * unyt.Mpc,
         positions=pos * unyt.Mpc,
         smoothing_lengths=np.full(pos.shape[0], 0.00233195) * unyt.Mpc,
