@@ -57,7 +57,7 @@ def get_image(snap):
             transform=ax.transAxes, verticalalignment="bottom",
             horizontalalignment='right', fontsize=6, color="w")
 
-    ax.plot([0.05, 0.15], [0.05, 0.05], lw=0.5, color='w',
+    ax.plot([0.05, 0.15], [0.05, 0.05], lw=0.75, color='w',
             clip_on=False,
             transform=ax.transAxes)
     
@@ -75,7 +75,7 @@ def get_image(snap):
 
     ax.text(0.1, 0.06, "%d cMpc" % dist,
             transform=ax.transAxes, verticalalignment="bottom",
-            horizontalalignment='center', fontsize=6, color="w")
+            horizontalalignment='center', fontsize=5, color="w")
     
     plt.margins(0, 0)
     
