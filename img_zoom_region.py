@@ -6,6 +6,7 @@ from synthesizer.imaging.images import ParticleImage
 import matplotlib.colors as cm
 import matplotlib.pyplot as plt
 import swiftascmaps
+from astropy.cosmology import Planck18 as cosmo
 
 
 def get_image(snap):
@@ -44,7 +45,7 @@ def get_image(snap):
         img.img,
         extent=(pos[:, 0].min(), pos[:, 0].max(),
                 pos[:, 1].min(), pos[:, 1].max()),
-        norm=cm.LogNorm(vmin=mass[0] * 0.5, vmax=None, clip=True),
+        norm=cm.LogNorm(vmin=mass[0] * 0.5, vmax=71203564514.88318, clip=True),
         cmap="swift.nineteen_eighty_nine")
 
     ax.tick_params(axis='both', left=False, top=False, right=False,
