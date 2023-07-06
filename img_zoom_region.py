@@ -54,8 +54,8 @@ if len(sys.argv) == 1:
 
     snaps = [str(i).zfill(4) for i in range(0, 35)]
 
-    with MultiPool(len(snaps)) as pool:
-        pool.map(get_image, snaps)
+    for snap in snaps:
+        get_image(snap)
 
 else:
     
