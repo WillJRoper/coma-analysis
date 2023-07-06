@@ -14,8 +14,8 @@ def get_image(snap):
     # Get data
     hdf = h5py.File("../low_res/snapshots/COMA_N155_" + snap + ".hdf5", "r")
     redshift = hdf["Header"].attrs["Redshift"]
-    pos = hdf["PartType1"]["Coordinates"][:]
-    mass = hdf["PartType1"]["Masses"][:] * 10 ** 10
+    pos = hdf["PartType1"]["Coordinates"][:1000, :]
+    mass = hdf["PartType1"]["Masses"][:1000] * 10 ** 10
     hdf.close()
 
     print("Got data...")
@@ -60,10 +60,10 @@ def get_image(snap):
 
     # Define distance indicator
     dist = 10
-    left = extent[0] + 0.05 * fov
+    left = extent[0] + (0.05 * fov)
     right = left + dist
     xmid = left + (dist / 2)
-    ymid = extent[0] + 0.05 * fov
+    ymid = extent[0] + (0.05 * fov)
     top = ymid + 1.5
     bottom = ymid - 1.5
 
