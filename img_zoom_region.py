@@ -21,11 +21,12 @@ def get_image(snap):
     print("Got data...")
 
     extent = [440, 560, 440, 560]
+    fov = extent[1] - extent[0]
 
     # Get image
     img = ParticleImage(
         0.00233195 * unyt.Mpc,
-        fov=120 * unyt.Mpc,
+        fov=fov * unyt.Mpc,
         positions=pos * unyt.Mpc,
         smoothing_lengths=np.full(pos.shape[0], 0.00233195) * unyt.Mpc,
         pixel_values=mass,
@@ -57,24 +58,24 @@ def get_image(snap):
             transform=ax.transAxes, verticalalignment="top",
             horizontalalignment='right', fontsize=6, color="w")
 
-    ax.plot([0.05, 0.05 + 1 / 12], [0.05, 0.05], lw=0.75, color='w',
-            clip_on=False,
-            transform=ax.transAxes)
-    
-    ax.plot([0.05, 0.05], [0.04, 0.06], lw=0.75, color='w',
-            clip_on=False,
-            transform=ax.transAxes)
-    ax.plot([0.05 + 1 / 12, 0.05 + 1 / 12], [0.04, 0.06], lw=0.75, color='w',
-            clip_on=False,
-            transform=ax.transAxes)
-    
-    axis_to_data = ax.transAxes + ax.transData.inverted()
-    left = axis_to_data.transform((0.05, 0.075))
-    right = axis_to_data.transform((0.15, 0.075))
-    dist = right[0] - left[0]
+    # Define distance indicator
+    dist = 10
+    left = 0.05 * fov
+    right = left + dist
+    xmid = left + (dist / 2)
+    ymid = 0.05 * fov
+    top = ymid + 1.5
+    bottom = ymid - 1.5
 
-    ax.text(0.1, 0.06, "%d cMpc" % dist,
-            transform=ax.transAxes, verticalalignment="bottom",
+    ax.plot([left, right], [ymid, ymid], lw=0.75, color='w',
+            clip_on=False)
+    
+    ax.plot([left, left], [bottom, top], lw=0.75, color='w',
+            clip_on=False)
+    ax.plot([right, right], [bottom, top], lw=0.75, color='w',
+            clip_on=False)
+
+    ax.text(xmid, top, "%d cMpc" % dist, verticalalignment="bottom",
             horizontalalignment='center', fontsize=5, color="w")
     
     plt.margins(0, 0)
