@@ -55,16 +55,16 @@ def get_image(snap):
 
     ax.text(0.975, 0.05, "$t=$%.1f Gyr" % cosmo.age(redshift).value,
             transform=ax.transAxes, verticalalignment="top",
-            horizontalalignment='right', fontsize=10, color="w")
+            horizontalalignment='right', fontsize=6, color="w")
 
-    ax.plot([0.05, 0.15], [0.025, 0.025], lw=0.5, color='w',
+    ax.plot([0.05, 0.15], [0.05, 0.05], lw=0.5, color='w',
             clip_on=False,
             transform=ax.transAxes)
     
-    ax.plot([0.05, 0.05], [0.022, 0.027], lw=0.75, color='w',
+    ax.plot([0.05, 0.05], [0.025, 0.075], lw=0.75, color='w',
             clip_on=False,
             transform=ax.transAxes)
-    ax.plot([0.15, 0.15], [0.022, 0.027], lw=0.75, color='w',
+    ax.plot([0.15, 0.15], [0.025, 0.075], lw=0.75, color='w',
             clip_on=False,
             transform=ax.transAxes)
     
@@ -73,9 +73,9 @@ def get_image(snap):
     right = axis_to_data.transform((0.15, 0.075))
     dist = right[0] - left[0]
 
-    ax.text(0.1, 0.055, "%.2f cMpc" % dist,
+    ax.text(0.1, 0.055, "%d cMpc" % dist,
             transform=ax.transAxes, verticalalignment="top",
-            horizontalalignment='center', fontsize=10, color="w")
+            horizontalalignment='center', fontsize=6, color="w")
     
     plt.margins(0, 0)
     
