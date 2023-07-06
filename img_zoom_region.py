@@ -20,15 +20,16 @@ def get_image(snap):
 
     print("Got data...")
 
+    extent = [450, 550, 450, 550]
+
     # Get image
     img = ParticleImage(
         0.00233195 * unyt.Mpc * 2,
-        fov=np.max((np.max(pos[:, 0]) - np.min(pos[:, 0]),
-                    np.max(pos[:, 1]) - np.min(pos[:, 1]),
-                    np.max(pos[:, 2]) - np.min(pos[:, 2]))) * unyt.Mpc,
+        fov=100 * unyt.Mpc,
         positions=pos * unyt.Mpc,
         smoothing_lengths=np.full(pos.shape[0], 0.00233195) * unyt.Mpc,
-        pixel_values=mass
+        pixel_values=mass,
+        centre=np.array([500, 500, 500])
     )
     img.get_hist_img()
 
@@ -43,8 +44,7 @@ def get_image(snap):
     ax = fig.add_subplot(111)
     ax.imshow(
         img.img,
-        extent=(pos[:, 0].min(), pos[:, 0].max(),
-                pos[:, 1].min(), pos[:, 1].max()),
+        extent=extent,
         norm=cm.LogNorm(vmin=mass[0] * 0.5, vmax=71203564514.88318, clip=True),
         cmap="swift.nineteen_eighty_nine")
 
