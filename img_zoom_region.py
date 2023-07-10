@@ -7,6 +7,7 @@ import matplotlib.colors as cm
 import matplotlib.pyplot as plt
 import swiftascmaps
 from astropy.cosmology import Planck18 as cosmo
+import metalmaps
 
 
 def get_image(snap):
@@ -47,7 +48,7 @@ def get_image(snap):
         img.img,
         extent=extent,
         norm=cm.LogNorm(vmin=mass[0] * 0.5, vmax=19509086497.12782, clip=True),
-        cmap="swift.nineteen_eighty_nine")
+        cmap="metalmaps.master_of_puppets")
 
     ax.tick_params(axis='both', left=False, top=False, right=False,
                    bottom=False, labelleft=False,
