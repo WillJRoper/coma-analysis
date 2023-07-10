@@ -85,7 +85,7 @@ def get_image(snap):
     plt.close(fig)
       
 
-snaps = [str(i).zfill(4) for i in range(0, 35)]
+snaps = [str(i).zfill(4) for i in range(0, 37)]
 
 # Get snapshot
 if len(sys.argv) == 1:
