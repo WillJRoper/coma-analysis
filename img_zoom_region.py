@@ -48,7 +48,7 @@ def get_image(snap):
         img.img,
         extent=extent,
         norm=cm.LogNorm(vmin=mass[0] * 0.5, vmax=19509086497.12782, clip=True),
-        cmap="metalmaps.master_of_puppets")
+        cmap="metalmaps.the_hunter")
 
     ax.tick_params(axis='both', left=False, top=False, right=False,
                    bottom=False, labelleft=False,
